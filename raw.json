@@ -1,0 +1,8 @@
+[
+  {
+    "ast": "(\"App\" (\"App\" (\"Var\" ((\"Var\" ((\"name\" \"(,)\") (\"mod\" \"GHC.Tuple\") (\"pkg\" \"ghc-prim\"))))) (\"Type\" (\"TyConApp\" ((\"TyCon\" ((\"name\" \"String\") (\"mod\" \"GHC.Base\") (\"pkg\" \"base\")))) (\"[]\")))) (\"Type\" (\"TyConApp\" ((\"TyCon\" ((\"name\" \"String\") (\"mod\" \"GHC.Base\") (\"pkg\" \"base\")))) (\"[]\"))))",
+    "name": "stdRequired",
+    "module": "System.Console.GetOpt.Utils",
+    "package": "MissingH"
+  } 
+]
