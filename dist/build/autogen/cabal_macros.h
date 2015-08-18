@@ -7,6 +7,13 @@
   (major1) == 1 && (major2) <  3 || \
   (major1) == 1 && (major2) == 3 && (minor) <= 0)
 
+/* package aeson-0.9.0.1 */
+#define VERSION_aeson "0.9.0.1"
+#define MIN_VERSION_aeson(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  9 || \
+  (major1) == 0 && (major2) == 9 && (minor) <= 0)
+
 /* package atto-lisp-0.2.2 */
 #define VERSION_atto_lisp "0.2.2"
 #define MIN_VERSION_atto_lisp(major1,major2,minor) (\
@@ -140,5 +147,5 @@
   (major1) == 2 && (major2) <  23 || \
   (major1) == 2 && (major2) == 23 && (minor) <= 0)
 
-#define CURRENT_PACKAGE_KEY "GetDe_9magzu3HfpC5w4jKRBYtXH"
+#define CURRENT_PACKAGE_KEY "GetDe_GkE8YeF2MVeFeXHCqZErAh"
 

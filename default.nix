@@ -1,5 +1,5 @@
 { mkDerivation, atto-lisp, attoparsec, base, bytestring, directory
-, MissingH, parsec, QuickCheck, stdenv, stringable, tasty
+, MissingH, parsec, QuickCheck, stdenv, stringable, tasty, aeson
 , tasty-quickcheck, xml
 }:
 mkDerivation {
@@ -9,7 +9,7 @@ mkDerivation {
   isLibrary = false;
   isExecutable = true;
   buildDepends = [
-    atto-lisp attoparsec base bytestring MissingH parsec stringable xml
+    atto-lisp attoparsec base bytestring MissingH parsec stringable xml aeson
   ];
   testDepends = [
     atto-lisp attoparsec base bytestring directory MissingH parsec

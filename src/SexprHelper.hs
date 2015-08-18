@@ -17,9 +17,3 @@ parseSexpr s = case parseLisp (S.fromString s) of
 
 lispToTree (L.List   xs) = Node (map lispToTree xs)
 lispToTree (L.String s)  = Leaf (S.toString s)
-
-treeToLisp (Leaf x)  = L.String (S.fromString x)
-treeToLisp (Node xs) = L.List (map treeToLisp xs)
-
-treeToSexpr :: TreeOf String -> String
-treeToSexpr = S.toString . L.encode . treeToLisp

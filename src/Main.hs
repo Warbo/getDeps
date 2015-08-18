@@ -4,4 +4,4 @@ import Data.List
 
 main = do
     input <- getContents
-    print (nub . getDeps . parseSexpr $ input)
+    print (makeJson . nub . getDeps . parseSexpr $ input)
