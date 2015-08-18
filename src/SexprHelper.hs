@@ -5,7 +5,7 @@ import qualified Data.Attoparsec.ByteString    as AB
 import qualified Data.ByteString.Char8         as C
 import qualified Data.Stringable               as S
 import           GetDeps
-import Types
+import           Types
 import           Text.ParserCombinators.Parsec
 
 parseLisp = AB.maybeResult . AB.parse L.lisp

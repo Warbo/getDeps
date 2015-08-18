@@ -1,6 +1,6 @@
 import           GetDeps
 import           SexprHelper
-import Data.List
+import           Data.List
 
 main = do
     input <- getContents

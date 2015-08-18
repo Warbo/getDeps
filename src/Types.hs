@@ -2,8 +2,8 @@
 module Types where
 
 
-import Data.Foldable
-import Data.Aeson
+import          Data.Foldable
+import          Data.Aeson
 
 
 
