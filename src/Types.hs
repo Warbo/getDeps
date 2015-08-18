@@ -11,10 +11,6 @@ data TreeOf a = Leaf a
                 | Node [TreeOf a]
                 deriving (Eq, Show)
 
--- instance Show a => Show (TreeOf a) where
---     show (Leaf x)  = show x
---     show (Node xs) = unwords (map show xs)
-
 
 instance Functor TreeOf where
     fmap f (Leaf x)  = Leaf (f x)
