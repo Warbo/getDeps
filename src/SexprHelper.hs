@@ -3,10 +3,11 @@ module SexprHelper where
 import qualified Data.AttoLisp                 as L
 import qualified Data.Attoparsec.ByteString    as AB
 import qualified Data.ByteString.Char8         as C
+import           Data.List
 import qualified Data.Stringable               as S
 import           GetDeps
-import           Types
 import           Text.ParserCombinators.Parsec
+import           Types
 
 parseLisp = AB.maybeResult . AB.parse L.lisp
 
@@ -17,3 +18,4 @@ parseSexpr s = case parseLisp (S.fromString s) of
 
 lispToTree (L.List   xs) = Node (map lispToTree xs)
 lispToTree (L.String s)  = Leaf (S.toString s)
+lispToTree (L.Symbol x)  = Leaf ("mysim" ++ S.toString x)

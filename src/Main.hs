@@ -1,7 +1,7 @@
+import           Data.List
 import           GetDeps
 import           SexprHelper
-import           Data.List
 
 main = do
     input <- getContents
-    print (makeJson . nub . getDeps . parseSexpr $ input)
+    putStrLn . makeJson . nub . getDeps . parseSexpr $ input
