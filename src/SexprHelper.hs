@@ -18,4 +18,3 @@ parseSexpr s = case parseLisp (S.fromString s) of
 
 lispToTree (L.List   xs) = Node (map lispToTree xs)
 lispToTree (L.String s)  = Leaf (S.toString s)
-lispToTree (L.Symbol x)  = Leaf ("mysim" ++ S.toString x)

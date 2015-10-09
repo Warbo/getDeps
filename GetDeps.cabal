@@ -16,6 +16,11 @@ build-type:          Simple
 extra-source-files:  README
 cabal-version:       >=1.10
 
+library
+  exposed-modules:     GetDeps
+                     , SexprHelper
+                     , Types
+                     
 executable GetDeps
   main-is:             Main.hs
   -- other-modules:
