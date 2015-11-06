@@ -2,7 +2,7 @@
 , parsec, stdenv, stringable
 }:
 mkDerivation {
-  pname = "GetDebs";
+  pname = "GetDeps";
   version = "0.1.0.0";
   src = ./.;
   isLibrary = true;
