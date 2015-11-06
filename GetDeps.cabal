@@ -17,9 +17,17 @@ extra-source-files:  README
 cabal-version:       >=1.10
 
 library
+  hs-source-dirs:      src
   exposed-modules:     GetDeps
                      , SexprHelper
                      , Types
+  build-depends:       base >=4.7
+                     , parsec
+                     , atto-lisp
+                     , stringable
+                     , bytestring
+                     , attoparsec
+                     , aeson
                      
 executable GetDeps
   main-is:             Main.hs

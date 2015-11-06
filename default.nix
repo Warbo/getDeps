@@ -7,6 +7,9 @@ mkDerivation {
   src = ./.;
   isLibrary = true;
   isExecutable = true;
+  libraryHaskellDepends = [
+    aeson atto-lisp attoparsec base bytestring parsec stringable
+  ];
   executableHaskellDepends = [
     aeson atto-lisp attoparsec base bytestring parsec stringable
   ];
