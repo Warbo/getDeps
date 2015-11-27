@@ -1,14 +1,18 @@
 module Main where
 
-import           Test.Tasty (defaultMain, testGroup)
-import           Test.Tasty.QuickCheck
+import qualified Data.AttoLisp   as L
+import           Data.Char
+import qualified Data.Stringable as S
 import           GetDeps
 import           SexprHelper
+import           Test.Tasty (defaultMain, testGroup)
+import           Test.Tasty.QuickCheck
 import           Types
 
 main = defaultMain $ testGroup "All tests" [
-    testProperty "Get an ID"   getAnId
-  , testProperty "Get all IDs" getAllIds
+    testProperty "Get an ID"               getAnId
+  , testProperty "Get all IDs"             getAllIds
+  , testProperty "Can parse s-expressions" canParseSexprs
   ]
 
 getAnId n m p = getDeps tree == [Out n m p]
@@ -35,3 +39,22 @@ treeOf (x:xs) = let Node rest = treeOf xs
                                 1 -> [Node rest, x]
                                 2 -> [x]  ++ rest
                                 3 -> rest ++ [x]
+
+canParseSexprs x = parseSexpr (show x) == lispToTree x
+
+instance Arbitrary L.Lisp where
+  arbitrary = choose (0, 200) >>= boundedLisp
+
+boundedList :: (Int -> Gen a) -> Int -> Gen [a]
+boundedList f n | n < 2 = return []
+boundedList f n         = do i  <- choose (1, n)
+                             x  <- f i
+                             xs <- boundedList f (n - i)
+                             return (x:xs)
+
+boundedLisp n = oneof [saneString,
+                       L.List <$> boundedList boundedLisp n]
+
+-- | Stick to printable characters, to avoid bugs in AttoLisp
+saneString = (L.String . S.fromString . filter keep) <$> arbitrary
+  where keep c = isAlphaNum c && isAscii c
