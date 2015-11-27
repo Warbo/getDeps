@@ -5,7 +5,7 @@ let
   inherit (nixpkgs) pkgs;
 
   f = { mkDerivation, aeson, atto-lisp, attoparsec, base
-      , bytestring, parsec, stdenv, stringable
+      , bytestring, parsec, stdenv, stringable, tasty, tasty-quickcheck
       }:
       mkDerivation {
         pname = "GetDeps";
@@ -19,14 +19,18 @@ let
         executableHaskellDepends = [
           aeson atto-lisp attoparsec base bytestring parsec stringable
         ];
-        homepage = "http://chriswarbo.net/essays/repos/tree-features.html";
+        testHaskellDepends = [
+          aeson atto-lisp attoparsec base bytestring parsec stringable tasty
+          tasty-quickcheck
+        ];
+        homepage = "http://chriswarbo.net/git/get-deps";
         description = "Feature extraction for tree structured data";
         license = stdenv.lib.licenses.gpl3;
       };
 
   haskellPackages = if compiler == "default"
-                      then pkgs.haskellPackages
-                      else pkgs.haskell.packages.${compiler};
+                       then pkgs.haskellPackages
+                       else pkgs.haskell.packages.${compiler};
 
   drv = haskellPackages.callPackage f {};
 
