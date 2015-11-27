@@ -6,4 +6,4 @@ import           SexprHelper
 
 main = do
     input <- getContents
-    putStrLn . makeJson . nub . getDeps . parseSexpr $ input
+    putStrLn (process input)

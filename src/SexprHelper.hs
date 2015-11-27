@@ -18,3 +18,5 @@ parseSexpr s = case parseLisp (S.fromString s) of
 
 lispToTree (L.List   xs) = Node (map lispToTree xs)
 lispToTree (L.String s)  = Leaf (S.toString s)
+
+process = makeJson . nub . getDeps . parseSexpr
