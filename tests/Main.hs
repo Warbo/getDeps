@@ -37,7 +37,7 @@ treeOf (x:xs) = let Node rest = treeOf xs
                  in Node $ case length xs `mod` 2 of
                                 0 -> [x, Node rest]
                                 1 -> [Node rest, x]
-                                2 -> [x]  ++ rest
+                                2 -> x    :  rest
                                 3 -> rest ++ [x]
 
 canParseSexprs x = parseSexpr (show x) == lispToTree x
