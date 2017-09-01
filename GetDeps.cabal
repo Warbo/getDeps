@@ -2,7 +2,7 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 name:                GetDeps
-version:             0.1.0.0
+version:             0.2.0.0
 synopsis:            Feature extraction for tree structured data
 -- description:
 homepage:            http://chriswarbo.net/git/get-deps
@@ -50,7 +50,7 @@ test-suite tests
   type:                exitcode-stdio-1.0
   build-depends:       base
                      , QuickCheck
-                     , tasty
+                     , tasty >= 0.11.2.1
                      , tasty-quickcheck
                      , parsec
                      , atto-lisp
