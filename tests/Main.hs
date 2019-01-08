@@ -56,5 +56,5 @@ boundedLisp n = oneof [saneString,
                        L.List <$> boundedList boundedLisp n]
 
 -- | Stick to printable characters, to avoid bugs in AttoLisp
-saneString = (L.String . S.fromString . filter keep) <$> arbitrary
+saneString = L.String . S.fromString . filter keep <$> arbitrary
   where keep c = isAlphaNum c && isAscii c
